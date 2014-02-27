@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    float salario, parcela;
+
+    printf("Informe o salario\n");
+    scanf("%f", &salario);
+    printf("Informe a parcela:\n");
+    scanf("%f", &parcela);
+
+    if(parcela <= (float) (salario * 0.3))
+        printf("Emprestimo concedido %f", parcela);
+    else
+        printf("Emprestimo nao concedido%f", parcela);
+    return 0;
+}
