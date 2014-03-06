@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+    int x1, x2, y1, y2, x, y, numMeteoritos = 0;
+    char opcao = 's';
+
+    printf("Informe os limites da fazenda:\n");
+    printf("X1: \n");
+    scanf("%d", &x1);
+    printf("X2: \n");
+    scanf("%d", &x2);
+    printf("Y1: \n");
+    scanf("%d", &y1);
+    printf("Y2: \n");
+    scanf("%d", &y2);
+
+    while (opcao == 's') {
+
+        printf("Informe onde as coordenadas do meteorito:\n");
+        printf("X: \n");
+        scanf("%d", &x);
+        printf("Y: \n");
+        scanf("%d", &y);
+
+        if (x >= x1 && x <= x2 && y >= y1 && y <= y2) {
+            numMeteoritos++;
+        }
+
+        printf("Deseja inserir mais uma coordenada? (s/n)\n");
+        fflush(stdin);
+        scanf("%c", &opcao);
+    }
+
+    printf("Cairam %d meteorito(s) na fazenda.", numMeteoritos);
+
+
+    return 0;
+}
