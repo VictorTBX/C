@@ -4,7 +4,7 @@
 int main()
 {
 
-    int x1, x2, y1, y2, x, y, numMeteoritos = 0;
+    int x1, x2, y1, y2, x, y, numMeteoritos = 0, xMaior, yMaior, xMenor, yMenor;
     char opcao = 's';
 
     printf("Informe os limites da fazenda:\n");
@@ -17,24 +17,44 @@ int main()
     printf("Y2: \n");
     scanf("%d", &y2);
 
+    if  (x1 > x2) {
+        xMaior = x1;
+        xMenor = x2;
+    } else {
+        xMaior = x2;
+        xMenor = x1;
+    }
+
+    if  (y1 > y2) {
+        yMaior = y1;
+        yMenor = y2;
+    } else {
+        yMaior = y2;
+        yMenor = y1;
+    }
+
     while (opcao == 's') {
 
-        printf("Informe onde as coordenadas do meteorito:\n");
+        printf("Informe as coordenadas do meteorito:\n");
         printf("X: \n");
         scanf("%d", &x);
         printf("Y: \n");
         scanf("%d", &y);
 
-        if (x >= x1 && x <= x2 && y >= y1 && y <= y2) {
+
+        if (xMenor >= x1 && xMaior <= x2 && yMenor >= y1 && yMaior <= y2) {
             numMeteoritos++;
+            printf("Meteorito caiu dentro da fazenda.\n");
         }
+        else
+            printf("Meteorito nao caiu dentro da fazenda.\n");
 
         printf("Deseja inserir mais uma coordenada? (s/n)\n");
         fflush(stdin);
         scanf("%c", &opcao);
     }
 
-    printf("Cairam %d meteorito(s) na fazenda.", numMeteoritos);
+    printf("Cairam %d meteorito(s) na fazenda.\n", numMeteoritos);
 
 
     return 0;
