@@ -5,7 +5,7 @@ int main()
 {
 
     int x1, x2, y1, y2, x, y, numMeteoritos = 0, xMaior, yMaior, xMenor, yMenor;
-    char opcao = 's';
+    char opcao;
 
     printf("Informe os limites da fazenda:\n");
     printf("X1: \n");
@@ -33,7 +33,7 @@ int main()
         yMenor = y1;
     }
 
-    while (opcao == 's') {
+    do {
 
         printf("Informe as coordenadas do meteorito:\n");
         printf("X: \n");
@@ -52,7 +52,7 @@ int main()
         printf("Deseja inserir mais uma coordenada? (s/n)\n");
         fflush(stdin);
         scanf("%c", &opcao);
-    }
+    } while (opcao == 's');
 
     printf("Cairam %d meteorito(s) na fazenda.\n", numMeteoritos);
 
