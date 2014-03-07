@@ -42,7 +42,7 @@ int main()
         scanf("%d", &y);
 
 
-        if (xMenor >= x1 && xMaior <= x2 && yMenor >= y1 && yMaior <= y2) {
+        if (xMenor <= x && xMaior >= x && yMenor <= y && yMaior >= y) {
             numMeteoritos++;
             printf("Meteorito caiu dentro da fazenda.\n");
         }
