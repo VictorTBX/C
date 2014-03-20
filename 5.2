@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char sexo;
+    float peso, altura, alturaMedia, alturaSoma;
+    int i, homem = 0, mulher = 0, obesos = 0;
+
+    for(i = 0; i < 10; i++) {
+        while((sexo != 'h') && (sexo != 'm')) {
+            printf("Informe o seu sexo \n");
+            printf("Homem (h) ou Mulher (m):\n");
+            scanf("%c", &sexo);
+            fflush(stdin);
+        }
+        printf("Informe o seu peso em kg:\n");
+        scanf("%f", &peso);
+        printf("Informe a sua altura em m:\n");
+        scanf("%f", &altura);
+
+        if(altura > (float)1.5 && peso > (float)90)
+            obesos++;
+
+        if(sexo == 'm') {
+            mulher++;
+            if(alturaMedia == 0)
+                alturaSoma = altura;
+            else
+                alturaSoma = alturaSoma + altura;
+        }
+        else
+            homem++;
+        fflush(stdin);
+        sexo = 'a';
+    }
+
+    alturaMedia = alturaSoma/mulher;
+    printf("%d homens\n", homem);
+    printf("%d pessoas com peso superior a 90kg e 1,5m\n", obesos);
+    printf("%d eh a media da altura das mulheres", alturaMedia);
+
+
+    return 0;
+}
