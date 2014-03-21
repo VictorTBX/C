@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int a, b, c;
+    float d;
+
+    printf("Informe os 3 valores a serem calculados:\n");
+    printf("a:");
+    scanf("%d", &a);
+    printf("b:");
+    scanf("%d", &b);
+    printf("c:");
+    scanf("%d", &c);
+
+    d = ((a+b)*(a+b) + (b+c)*(b+c)) / 2;
+
+    printf("O valor da expressao eh: %.2f", d);
+    return 0;
+}
