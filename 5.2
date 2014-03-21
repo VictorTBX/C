@@ -9,10 +9,10 @@ int main()
 
     for(i = 0; i < 10; i++) {
         while((sexo != 'h') && (sexo != 'm')) {
+            fflush(stdin);
             printf("Informe o seu sexo \n");
             printf("Homem (h) ou Mulher (m):\n");
             scanf("%c", &sexo);
-            fflush(stdin);
         }
         printf("Informe o seu peso em kg:\n");
         scanf("%f", &peso);
@@ -31,7 +31,6 @@ int main()
         }
         else
             homem++;
-        fflush(stdin);
         sexo = 'a';
     }
 
