@@ -30,13 +30,11 @@ int main(){
                 }
             }
             if(N!=0){
-                if (J!=0){
-                    printf("\nTeste %d\n",teste);
-                    printf("%d %d\n\n",primeiro,J);
-                }else{
-                    printf("\nTeste %d\n",teste);
-                    printf("Nenhum\n");
-                }
+                if (J!=0)
+                    printf("\nTeste %d\n%d %d\n",teste,primeiro,J);
+                else
+                    printf("\nTeste %d\nNenhum\n",teste);
+
                 teste++;
             }
         }else{
