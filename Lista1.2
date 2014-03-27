@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+    float precoTotal, precoProduto;
+    int quantidade, codigo, opc;
+
+    printf("Selecione um dos produtos abaixo:\n");
+    printf("CODIGO   -   PRECO\n");
+    printf("1001     -   RS 5,32\n");
+    printf("1324     -   RS 6,45\n");
+    printf("6548     -   RS 2,37\n");
+    printf("987      -   RS 5,32\n");
+    printf("7623     -   RS 6,45\n -");
+
+    scanf("%d", &codigo);
+
+    switch (codigo) {
+    case 1001: codigo = 1001; precoProduto = 5.32; break;
+    case 1324: codigo = 1324; precoProduto = 6.45; break;
+    case 6548: codigo = 6548; precoProduto = 2.37; break;
+    case 987: codigo = 987; precoProduto = 5.32; break;
+    case 7623: codigo = 7623; precoProduto = 6.45; break;
+    default: printf("CODIGO INVALIDO!!!"); return 0;
+    }
+
+    printf("Informe a quandidade de produtos que voce deseja do codigo %d:\n -", codigo);
+    scanf("%d", &quantidade);
+
+    precoTotal = (float)(precoProduto * quantidade);
+
+    printf("Voce comprou %d unidades do produto de codigo %d e gastou um total de RS%.2f", quantidade, codigo, precoTotal);
+
+    return 0;
+}
