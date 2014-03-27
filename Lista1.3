@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int i;
+    float a, b, c, maior, menor, meio;
+
+    printf("Informe o valor de i\n");
+    scanf("%d", &i);
+    printf("Informe o valor de a\n");
+    scanf("%f", &a);
+    printf("Informe o valor de b\n");
+    scanf("%f", &b);
+    printf("Informe o valor de c\n");
+    scanf("%f", &c);
+
+    maior = a; menor = b; meio = c;
+
+    if (a > b || a > c) {
+        if (a <= b) {
+            meio = a;
+            menor = c;
+            maior = b;
+        }
+        else {
+            if (a <= c) {
+                meio = a;
+                menor = b;
+                maior = c;
+            }
+        }
+    }
+
+    if (b > a || b > c) {
+        if (b <= a) {
+            meio = b;
+            menor = c;
+            maior = a;
+        }
+        else {
+            if (b <= c) {
+                meio = b;
+                menor = a;
+                maior = c;
+            }
+        }
+    }
+
+    if (c > b || c > a) {
+        if (c <= b) {
+            meio = c;
+            menor = a;
+            maior = b;
+        }
+        else {
+            if (c <= a) {
+                meio = c;
+                menor = b;
+                maior = a;
+            }
+        }
+    }
+
+
+    switch(i) {
+    case 1:
+        printf("%.2f , %.2f , %.2f", menor, meio, maior);
+        break;
+    case 2:
+        printf("%.2f , %.2f , %.2f", maior, meio, menor);
+        break;
+    case 3:
+        printf("%.2f , %.2f , %.2f", meio, maior, menor);
+        break;
+    }
+
+    return 0;
+}
