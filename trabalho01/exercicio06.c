@@ -1,44 +1,47 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 int percentual(int total, int intervalo){
     return ((intervalo*100)/total);
 }
+
 int main(){
-    double contaSalario=0,contaFilhos=0,maiorSalario=0;
-    double salario;
-    int contaSalario100=0,contador=0;
-    int filho;
+    int simnao,conta=0;
+    int contaSim=0, contaNao=0;
+    int contaNaoHomem=0, ContaSimMulher=0,pessoa=2000;
+    char sexo;
 
     do{
-        printf("Habitante %d\n",(contador+1));
-        printf("Informe o Salario...: ");
-        scanf("%lf",&salario);
+        printf("Pessoa %d...\n",pessoa);
+        printf("Gostou do produto Sim[1] Nao[0]........: ");
+        scanf("%d",&simnao);
 
-        printf("Quantidade de filhos: ");
-        scanf("%d",&filho);
-
-        if(salario>0){                      // pega somente valores positivos
-            contaSalario=contaSalario+salario;
-            contaFilhos=contaFilhos+filho;
-            if (salario<=100.00){
-                contaSalario100++;
-            }
-            if (maiorSalario<salario)
-                maiorSalario=salario;
-
-            contador++;
-        }
         fflush(stdin);
+
+        printf("Informe seu sexo Mulheres[m] Homem[h]..: ");
+        scanf("%c",&sexo);
         printf("\n");
-    }while(salario>0);
 
-    printf("\n");
-    printf("Media do Salario da Populacao.............. R$ %.2lf\n",(contaSalario/contador));
-    printf("\nMedia do Numero de filhos da Populacao..... %.lf\n",(contaFilhos/contador));
-    printf("\nMaior salario.............................. R$ %.2lf\n",maiorSalario);
-    printf("\nPercentual com salario ate R$100,00 eh %d%%\n",percentual(contador,contaSalario100));
+        // pega somente valores validos
+        if (!((simnao==1 || simnao==0) && ((sexo=='m' || sexo=='h') || (sexo=='M' || sexo=='H')))){
+            printf("\nOpcao invalida...\nFim de execucao!!!\n");
+            return 0;
+        }else{
+            if (simnao){
+                contaSim++;
+                ContaSimMulher=(sexo=='M' || sexo=='m') ? ContaSimMulher+1 : ContaSimMulher+0;
+            }else{
+                contaNao++;
+                contaNaoHomem=(sexo=='H' || sexo=='h') ? contaNaoHomem+1 : contaNaoHomem+0;
+            }
+            conta++;
+            pessoa--;
+        }
+    }while(pessoa!=0);
+    printf("\nO numero de pessoas que responderam sim: %d\n" ,contaSim);
+    printf("\nO numero de pessoas que responderam nao: %d\n" ,contaNao);
 
+    printf("\n%d%% das pessoas do sexo feminino que responderam sim\n",percentual(conta,ContaSimMulher));
+    printf("\n%d%% das pessoas do sexo masculino que responderam nao\n",percentual(conta,contaNaoHomem));
     return 0;
 }
