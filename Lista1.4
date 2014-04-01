@@ -3,11 +3,12 @@
 
 int main()
 {
-    int popA = 90000000, popB = 20000000, ano = 0;
+    int ano = 0;
+    float popA = 90000000, popB = 20000000;
 
-    while (popA >= popB) {
-        popA = popA * 1,01;
-        popB = popB * 1,03;
+    while (popB <= popA) {
+        popA = popA * 1.01;
+        popB = popB * 1.03;
         ano++;
     }
 
