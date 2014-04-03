@@ -3,33 +3,44 @@
 
 int main()
 {
-    int resp, homem, sim, homemNao, mulherSim, i;
-    char sexo;
-    
-    for (i = 0; i < 2000; i++) {
-      printf("Informe o sexo (h/m):\n");
-      scanf("%c", &sexo);
-      fflush(stdin);
-      printf("Qual a reposta? (1 - Sim / 0 - Nao)\n");
-      scanf("%d", &resp);
-      
-      if (sexo == 'h' || sexo == 'H') {
-        homem++;
-        if (resp == 0)
-          homemNao++;
-      } else {
-        if(resp == 1)
-          mulherSim;
-      }
-      
-      if (resp == 1)
-        sim++;
-    }
-    
-    printf("%d pessoas responderam SIM\n", sim);
-    printf("%d pessoas responderam NAO\n", (2000-sim));
-    printf("%d % das mulheres responderam SIM\n", (mulherSim/(2000-homem)) * 100);
-    printf("%d % dos homens responderam NAO\n", (homemNao/homem) * 100);
-    
-    return 0;
+	int resp, homem = 0, sim = 0, homemNao = 0, mulherSim = 0, i;
+	char sexo = 'h';
+
+	for (i = 0; i < 4; i++) {		
+		fflush(stdin);
+		printf("Informe o sexo (h/m):\n");
+		scanf_s("%c", &sexo);		
+		sexo = getchar();
+		printf("%c", sexo);
+		printf("Qual a reposta? (1 - Sim / 0 - Nao)\n");
+		scanf_s("%d", &resp);
+		printf("%d", resp);
+		
+
+		if (sexo == 'h' || sexo == 'H') {
+			homem++;
+			printf("Teste");
+			if (resp == 0)
+				homemNao++;
+			printf("Teste");
+		} 
+		else {
+			if ((sexo == 'm' || sexo == 'M') && resp == 1) {
+				mulherSim++;
+				printf("Teste");
+			}
+		}
+
+		if (resp == 1)
+			sim++;
+	}
+
+	int mulher = 2000 - homem;	
+	printf("%d pessoas responderam SIM\n", sim);
+	printf("%d pessoas responderam NAO\n", (2000 - sim));
+	printf("%f porcento das mulheres responderam SIM\n", (mulherSim / mulher) * 100);
+	printf("%f porcento dos homens responderam NAO\n", ((homemNao / homem) * 100));
+
+	system("PAUSE");
+	return 0;
 }
