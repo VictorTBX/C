@@ -3,45 +3,47 @@
 
 int main()
 {
-    float salario, totalSalario = 0, mediaSalario = 0, maiorSalario = 0, mediaFilhos = 0;
-    int menorCem = 0, filhos, totalFilhos = 0, cont = 0;
-    char resp;
-    
-    printf("Informe o valor do salario\n");
-    scanf("%f", &salario);
-    printf("Informe o numero de filhos\n");
-    scanf("%d", &filhos);
-    
-    while(salario >= (float)0) {
-        totalSalario = totalSalario + salario;
-        totalFilhos = totalFilhos + filhos;
-        
-        if (maiorSalario == 0) {
-            maiorSalario = salario;
-        } else {
-            if(salario > maiorSalario)
-                maiorSalario = salario;
-        }
-        
-        if(salario < (float)100)
-            menorCem++;
-        
-        cont++;
-        
-        printf("Informe o valor do salario\n");
-        scanf("%f", &salario);
-        printf("Informe o numero de filhos\n");
-        scanf("%d", &filhos);
-    }
-    
-    mediaSalario = totalSalario/cont;
-    mediaFilhos = totalFilhos / cont;
-    menorCem = (menorCem/cont) * 100;
-    
-    printf("Media de salarios: %.2f\n", mediaSalario);
-    printf("Media de filhos: %.2f\n", mediaFilhos);
-    printf("Maior salario: %.2f\n", maiorSalario);
-    printf("Porcentagem de pessoas com salario menor que 100: %.2f\n", menorCem);
-    
-    return 0;
+	float salario, totalSalario = 0, mediaSalario = 0, maiorSalario = 0, mediaFilhos = 0, menorCem = 0, totalFilhos = 0;
+	int filhos, cont = 0;
+
+	printf("Informe o valor do salario\n");
+	scanf_s("%f", &salario);
+	printf("Informe o numero de filhos\n");
+	scanf_s("%d", &filhos);
+
+	while (salario >= (float)0) {
+		totalSalario = totalSalario + salario;
+		totalFilhos = totalFilhos + filhos;
+
+		if (maiorSalario == 0) {
+			maiorSalario = salario;
+		}
+		else {
+			if (salario > maiorSalario)
+				maiorSalario = salario;
+		}
+
+		if (salario < 100.0){
+			menorCem++;
+		}
+
+		cont++;
+
+		printf("Informe o valor do salario\n");
+		scanf_s("%f", &salario);
+		printf("Informe o numero de filhos\n");
+		scanf_s("%d", &filhos);
+	}
+
+	mediaSalario = totalSalario / cont;
+	mediaFilhos = (float)(totalFilhos/cont);
+	menorCem = (menorCem / cont) * 100;
+
+	printf("Media de salarios: %.2f\n", mediaSalario);
+	printf("Media de filhos: %.2f\n", mediaFilhos);
+	printf("Maior salario: %.2f\n", maiorSalario);
+	printf("Porcentagem de pessoas com salario menor que 100: %.2f\n", menorCem);
+
+	system("PAUSE");
+	return 0;
 }
