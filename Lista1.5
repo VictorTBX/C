@@ -7,9 +7,9 @@ int main()
 	int filhos, cont = 0;
 
 	printf("Informe o valor do salario\n");
-	scanf_s("%f", &salario);
+	scanf("%f", &salario);
 	printf("Informe o numero de filhos\n");
-	scanf_s("%d", &filhos);
+	scanf("%d", &filhos);
 
 	while (salario >= (float)0) {
 		totalSalario = totalSalario + salario;
@@ -30,9 +30,9 @@ int main()
 		cont++;
 
 		printf("Informe o valor do salario\n");
-		scanf_s("%f", &salario);
+		scanf("%f", &salario);
 		printf("Informe o numero de filhos\n");
-		scanf_s("%d", &filhos);
+		scanf("%d", &filhos);
 	}
 
 	mediaSalario = totalSalario / cont;
