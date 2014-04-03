@@ -3,10 +3,12 @@
 
 int main()
 {
-	int n = 2, x, y, a = 0, b = 0, i = 0, j = 0, g, teste = 0;
+	int n = 2, x, y, a = 0, b = 0, i, j, g, teste = 0;
 
 	while (n != 0){
 		n = 1001;
+		i = 0;
+		j = 0;
 		while (n > 1000 || n < 0)
 			scanf("%d", &n);
 
@@ -39,6 +41,8 @@ int main()
 			{
 				j = i;
 				i = g+1;
+				if (j == 0)
+                    j = i;
 			}
 		}
 
