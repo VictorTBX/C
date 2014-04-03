@@ -3,7 +3,7 @@
 
 int main()
 {
-	int n = 2, x, y, a = 0, b = 0, i, j, g, teste = 0;
+	int n = 2, x, y, i, j, g, teste = 0, saldo = 0, maiorSaldo;
 
 	while (n != 0){
 		n = 1001;
@@ -27,14 +27,21 @@ int main()
                 scanf("%d", &y);
 			printf("%d %d\n", x, y);
 
-			if ((x - y) > i)
-			{
-				j = i;
-				i = g+1;
-				if (j == 0)
-                    j = i;
-			}
-		}
+			if(i == 0) {
+                if(x-y > 0){
+                    i = g+1;
+                    j = g+1;
+                    saldo = x-y;
+                    maiorSaldo = saldo;
+                }
+            } else {
+                saldo = saldo +x -y;
+                if(saldo >= maiorSaldo){
+                    maiorSaldo = saldo;
+                    j = g+1;
+                }
+            }
+        }
 
 		teste++;
 		printf("Teste %d\n", teste);
@@ -45,6 +52,5 @@ int main()
 			printf("Nenhum\n");
 	}
 
-	system("PAUSE");
 	return 0;
 }
