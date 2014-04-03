@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int n = 2, x, y, a = 0, b = 0, i = 0, j = 0, g, teste = 0;
+
+	while (n != 0){
+		n = 1001;
+		while (n > 1000 || n < 0)
+			scanf("%d", &n);
+
+		printf("%d \n", n);
+
+		if(n == 0)
+            break;
+
+		for (g = 0; g < n; g++)
+		{
+		    x = 51;
+            y = 51;
+		    while (x > 50 || x < 0)
+                scanf("%d", &x);
+			while (y > 50 || y < 0)
+                scanf("%d", &y);
+			printf("%d %d\n", x, y);
+
+			if (n == 1)
+			{
+				a = x; b = y;
+			}
+
+			if (n > 1) {
+				a = a + x;
+				b = b + y;
+			}
+
+			if ((x - y) > i)
+			{
+				j = i;
+				i = g+1;
+			}
+		}
+
+		teste++;
+		printf("Teste %d\n", teste);
+		if (i > 0) {
+            printf("%d %d\n", i, j);
+		}
+		else
+			printf("Nenhum\n");
+	}
+
+	system("PAUSE");
+	return 0;
+}
