@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int vetA[10], i, j = 0, aux;
+
+    for(i =0; i<10; i++){
+        printf("Informe o valor a ser inserido: ");
+        scanf("%d", &aux);
+        if(i == 0){
+            vetA[0] = aux;
+        } else {
+            while(j < i) {
+            if((j == i-1) && (aux != vetA[j]))
+                vetA[i] = aux;
+            else
+                i--;
+            if (aux != vetA[j])
+                j++;
+            }
+        }
+    }
+
+    for(i = 0; i<10; i++)
+    {
+        printf("%d ", vetA[i]);
+    }
+    
+    return 0;
+}
