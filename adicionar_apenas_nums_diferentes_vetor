@@ -14,8 +14,10 @@ int main()
             while(j < i) {
             if((j == i-1) && (aux != vetA[j]))
                 vetA[i] = aux;
-            else
+            else{
                 i--;
+                printf("NUMERO REPETIDO!\n");
+            }
             if (aux != vetA[j])
                 j++;
             }
@@ -26,6 +28,6 @@ int main()
     {
         printf("%d ", vetA[i]);
     }
-    
+
     return 0;
 }
