@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int vet[10], idade, *ptr, d;
+    ptr = vet;
+
+    for(d = 0; d<10; d++){
+        scanf("%d", vet+d);
+    }
+
+    for(d = 0; d<10; d++){
+        printf("%d no end %u\n", *(vet+d), vet+d);
+    }
+
+
+
+    return 0;
+}
