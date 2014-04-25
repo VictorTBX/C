@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void invert(int *vet1, int *vet2, int tam){
+    int i, j = tam-1;
+    for(i = 0; i<tam; i++){
+        *(vet2+i) = *(vet1+j);
+        j--;
+    }
+}
+
+int main()
+{
+    int vet1[3] = {1, 2, 3}, vet2[3], i;
+
+    invert(vet1, vet2, 3);
+
+    for(i = 0; i< 3; i++){
+        printf("%d \t", vet2[i]);
+    }
+
+    return 0;
+}
