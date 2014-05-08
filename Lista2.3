@@ -1,0 +1,74 @@
+/* Foi realizada uma pesquisa entre 15 habitantes de uma região. Foram coletados os seguintes dados de cada habitante: idade, sexo, salário e número de filhos.
+Faça uma subrotina que leia estes dados e armazene-os em vetores. Depois crie funções que recebam estes vetores como parâmetro e retornem a média de salário entre habitantes,
+a menor e a maior idade do grupo e a quantidade de de mulheres com três filhos que receberam até R$ 500,00. Crie também um programa Main para fazer a chamada das funções e procedimentos. */
+
+#include <stdio.h>
+#include <stdlib.h>
+#define TAM 15
+
+float mediaSalario(float *vetSalario){
+    int j;
+    float media = 0;
+
+    for(j = 0; j<TAM; j++){
+        media = vetSalario[j] + media;
+    }
+    return media/TAM;
+}
+
+int maiorIdade(int *vetIdade){
+    int maior = vetIdade[0], j;
+
+    for(j = 0; j<TAM; j++){
+        if(vetIdade[j] > maior)
+            maior = vetIdade[j];
+    }
+    return maior;
+}
+
+int menorIdade(int *vetIdade){
+    int menor = vetIdade[0], j;
+
+    for(j = 0; j<TAM; j++){
+        if(vetIdade[j] < menor)
+            menor = vetIdade[j];
+    }
+    return menor;
+}
+
+int mulheres(char *vetSexo, int *vetNumFilhos, float *vetSalario){
+    int quantidade = 0, j;
+    for(j = 0; j<TAM; j++){
+        if((vetSexo[j] == 'f' || vetSexo[j] == 'F') && (vetNumFilhos[j] == 3) && (vetSalario[j] <= 500))
+            quantidade++;
+    }
+    return quantidade;
+}
+
+int main()
+{
+    int vetIdade[TAM], vetNumFilhos[TAM], i;
+    float vetSalario[TAM];
+    char vetSexo[TAM];
+
+    for(i=0; i<TAM; i++)
+     {
+      printf("\nDigite as informacoes do habitante %d:", i+1);
+      printf("\nIdade:");
+      scanf("%d", &vetIdade[i]);
+      printf("\nNumero de Filhos:");
+      scanf("%d", &vetNumFilhos[i]);
+      printf("\nSalario:");
+      scanf("%f", &vetSalario[i]);
+      printf("\nSexo(m/f):");
+      fflush(stdin);
+      scanf("%c", &vetSexo[i]);
+     }
+
+     printf("\nMedia de Salario: %f", mediaSalario(vetSalario));
+     printf("\nMaior idade do grupo: %d", maiorIdade(vetIdade));
+     printf("\nMenor idade do grupo: %d", menorIdade(vetIdade));
+     printf("\nNumero de mulheres com 3 filhos e salario menor que RS500,00: %d", mulheres(vetSexo, vetNumFilhos, vetSalario));
+
+    return 0;
+}
