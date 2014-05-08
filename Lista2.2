@@ -1,0 +1,72 @@
+/* Faça um função em C que receba um vetor X de 30 elementos inteiros como parâmetros e retorne dois vetores A e B.
+O vetor A deve conter os elementos de X que sejam maiores do que zero e o vetor B  deve conter os elementos menores ou iguais a zero.
+Utilize a notação de ponteiros pra manipular os vetores e crie a função Main para testar a função e fazer a leitura dos dados do vetor X. */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#define TAM 30
+
+void maiorMenorZero(int *vet, int *A, int *B, int tam);
+
+int main()
+{
+ int vetA[TAM], vetMaior[TAM], vetMenorIgual[TAM], i;
+
+ for(i=0; i<TAM; i++)
+ {
+  printf("\nDigite valor da posicao %d:", i);
+  scanf("%d", &vetA[i]);
+ }
+
+ //inicializar vetor A e B para ter controle
+ for(i=0; i<TAM; i++)
+ {
+  vetMaior[i] = -1963;
+  vetMenorIgual[i]= -1963;
+ }
+
+maiorMenorZero(vetA, vetMaior, vetMenorIgual, TAM);
+
+ for(i=0; i<TAM; i++)
+ {
+   if(vetMaior[i] != -1963)
+    printf("\nvetMaior[%d] = %d", i, vetMaior[i]);
+ }
+
+  for(i=0; i<TAM; i++)
+ {
+   if(vetMenorIgual[i] != -1963)
+    printf("\nvetMenorIgual[%d] = %d", i, vetMenorIgual[i]);
+ }
+
+printf("\n");
+
+system("PAUSE");
+
+}
+
+void maiorMenorZero(int *vet, int *A, int *B, int tam)
+{
+ int k;
+ int *pA, *pB;
+
+ //inicalizando vetores
+ pA = A;
+ pB = B;
+
+ for(k=0; k<tam; k++)
+ {
+   if( *vet > 0 )
+   {
+     *pA = *vet;
+     pA++;
+   }
+  else
+   {
+     *pB = *vet;
+     pB++;
+   }
+  vet++;
+ }
+}
