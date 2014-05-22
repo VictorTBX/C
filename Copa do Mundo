@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+    int M, N, i = 0, resultado, aux;
+    char oitavas[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M', 'N', 'O','P'};
+    char quartas[8], semi[4], finals[2];
+    char vencedor;
+
+    while(i<15)
+    {
+        scanf("%d %d", &M, &N);
+        if(M == N)
+        {
+            printf("O valor deve ser diferente!\n");
+            continue;
+        }
+        if(M > 20 || M < 0 || N > 20 || N < 0)
+        {
+            printf("O valor deve ser maior que zero e menor que 20!\n");
+            continue;
+        }
+        resultado = M - N;
+        if(i<8)
+        {
+            if(resultado > 0)
+                quartas[i] = oitavas[i*2];
+            else
+                quartas[i] = oitavas[(i*2)+1];
+        }
+        if(i>=8 && i < 12)
+        {
+            aux = i-8;
+            if(resultado > 0)
+                semi[aux] = quartas[aux*2];
+            else
+                semi[aux] = quartas[(aux*2)+1];
+        }
+        if(i>=12 && i < 14)
+        {
+            aux = i-12;
+            if(resultado > 0)
+                finals[aux] = semi[aux*2];
+            else
+                finals[aux] = semi[(aux*2)+1];
+        }
+        if(i == 14)
+        {
+            if(resultado > 0)
+                vencedor = finals[0];
+            else
+                vencedor = finals[1];
+        }
+        i++;
+    }
+    printf("O vencedor eh: %c", vencedor);
+    return 0;
+}
